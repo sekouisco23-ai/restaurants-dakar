@@ -1,25 +1,73 @@
-# Restaurants Dakar
+# 🍽️ Restaurants Dakar API
 
-Projet pour récupérer, filtrer et insérer les restaurants de Dakar dans PostgreSQL.
+API permettant de récupérer les restaurants de Dakar stockés dans PostgreSQL et accessible en ligne.
 
-## Installation
+---
 
-1. Cloner le dépôt :
-   git clone https://github.com/<username>/restaurants-dakar.git
+## 🌐 Accès à l’API
 
-2. Installer les dépendances :
-   pip install -r requirements.txt
+Après déploiement sur Render :
 
-3. Créer un fichier .env avec :
-   DATABASE_URL=postgresql://...
-   GOOGLE_API_KEY=...
+* Accueil → `/`
+* Restaurants → `/restaurants`
 
-## Scripts
+Exemple :
+https://ton-service.onrender.com/restaurants
 
-- insert_restaurants.py : insère les restaurants dans PostgreSQL
-- filter_restaurants.py : filtre et affiche les restaurants
+---
 
-## Usage
+## ⚙️ Technologies
 
-python insert_restaurants.py
-python filter_restaurants.py
+* Python
+* Flask
+* PostgreSQL
+* Gunicorn
+* Render
+
+---
+
+## 🚀 Déploiement
+
+Le projet est prêt pour un déploiement automatique.
+
+### Fichiers importants
+
+* `app.py` → API Flask
+* `requirements.txt` → dépendances
+* `Procfile` → commande de démarrage
+
+### Commande de démarrage
+
+gunicorn app:app
+
+### Variables d’environnement (Render → Environment)
+
+DATABASE_URL=postgresql://...
+GOOGLE_API_KEY=...
+
+---
+
+## 📊 Endpoints
+
+### GET /
+
+Retour :
+Service Restaurants Dakar actif ✅
+
+### GET /restaurants
+
+Retourne la liste des restaurants en JSON
+
+---
+
+## 💻 Lancer en local (optionnel)
+
+Installer dépendances :
+pip install -r requirements.txt
+
+Créer `.env` :
+DATABASE_URL=postgresql://...
+GOOGLE_API_KEY=...
+
+Lancer :
+python app.py
